@@ -6,25 +6,30 @@
   </p>
 </div>
 
+<!--
+<%= cl_image_tag("c8lwtm2bhvykdp0tfve2", width: 400, height: 300, crop: :fill) %>
 
+<%= cl_image_tag("eamq3jkbwb3e6e3807dh",width: 150, height: 150, crop: :thumb, gravity: :face) %>
+ -->
 
 
   <div class="container">
     <div class="grid">
       <% @cocktails.each do |cocktail| %>
-      <div class="card-trip">
-        <img src="https://images.unsplash.com/photo-1485265449635-ca623a55e95c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= cocktail.name %></h2>
-            <p>Ready to drink</p>
-            <%= link_to "", cocktail_path(cocktail), class: "far fa-eye" %>
-            <%= link_to "", edit_cocktail_path(cocktail), class: "far fa-edit"  %>
+        <div class="card-trip">
+          <!-- fonction image faite dans le model cocktail -->
+          <%= cl_image_tag cocktail.image %>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= cocktail.name %></h2>
+              <p>Ready to drink</p>
+              <%= link_to "", cocktail_path(cocktail), class: "far fa-eye" %>
+              <%= link_to "", edit_cocktail_path(cocktail), class: "far fa-edit"  %>
+            </div>
+            <%= link_to "", cocktail, method: :delete, data: {confirm: "Are you sure ?"}, class: "card-trip-pricing far fa-trash-alt" %>
+            <img src="https://assets.afcdn.com/recipe/20180705/80274_w1024h768c1cx2378cy1278cxt0cyt0cxb4799cyb3199.jpg" class="card-trip-user avatar-bordered" />
           </div>
-          <%= link_to "", cocktail, method: :delete, data: {confirm: "Are you sure ?"}, class: "card-trip-pricing far fa-trash-alt" %>
-          <img src="https://assets.afcdn.com/recipe/20180705/80274_w1024h768c1cx2378cy1278cxt0cyt0cxb4799cyb3199.jpg" class="card-trip-user avatar-bordered" />
         </div>
-      </div>
       <% end %>
       <div class="plus">
         <div class="plus1">

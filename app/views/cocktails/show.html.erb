@@ -2,6 +2,7 @@
 <div class="container">
 
   <h1> <%= @cocktail.name %> </h1>
+  <%= cl_image_tag @cocktail.image, height: 300, width: 400, crop: :fill %>
 
   <!-- Ingredient-->
   <div>
@@ -24,6 +25,7 @@
     <% else %>
     <h3> Ingredients </h2>
     <ul>
+
       <% @cocktail.doses.each do |dose| %>
       <li>
         <strong>Ingredient: <%= dose.ingredient.name %> </strong>
